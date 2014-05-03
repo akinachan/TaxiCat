@@ -1082,8 +1082,8 @@ containing a value of this type.
     }
     public static final class id {
         public static final int LinearLayout1=0x7f05003c;
-        public static final int Password=0x7f050047;
-        public static final int UserId=0x7f050045;
+        public static final int Password=0x7f050048;
+        public static final int UserId=0x7f050046;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1092,16 +1092,16 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
-        public static final int action_logout=0x7f050050;
+        public static final int action_logout=0x7f050052;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05004f;
+        public static final int action_settings=0x7f050051;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int buttonLogin=0x7f050040;
-        public static final int buttonSubmit=0x7f05004e;
+        public static final int buttonSubmit=0x7f05004f;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1124,6 +1124,7 @@ containing a value of this type.
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
+        public static final int pager=0x7f050042;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
@@ -1137,6 +1138,7 @@ containing a value of this type.
         public static final int search_plate=0x7f050036;
         public static final int search_src_text=0x7f050037;
         public static final int search_voice_btn=0x7f05003b;
+        public static final int section_label=0x7f050050;
         public static final int shortcut=0x7f05002e;
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
@@ -1144,21 +1146,21 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int textView1=0x7f050044;
-        public static final int textView4=0x7f050049;
-        public static final int textView5=0x7f05004a;
-        public static final int textView6=0x7f05004c;
-        public static final int textView7=0x7f05004d;
+        public static final int textView1=0x7f050045;
+        public static final int textView4=0x7f05004a;
+        public static final int textView5=0x7f05004b;
+        public static final int textView6=0x7f05004d;
+        public static final int textView7=0x7f05004e;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
-        public static final int txtAddress=0x7f050048;
-        public static final int txtEmail=0x7f050046;
+        public static final int txtAddress=0x7f050049;
+        public static final int txtEmail=0x7f050047;
         public static final int txtPassword=0x7f05003f;
-        public static final int txtPhone=0x7f05004b;
+        public static final int txtPhone=0x7f05004c;
         public static final int txtSignUp=0x7f050041;
         public static final int txtUsername=0x7f05003e;
-        public static final int txtfName=0x7f050043;
-        public static final int txtlName=0x7f050042;
+        public static final int txtfName=0x7f050044;
+        public static final int txtlName=0x7f050043;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
         public static final int withText=0x7f05000c;
@@ -1216,7 +1218,10 @@ containing a value of this type.
         public static final int activity_login=0x7f030018;
         public static final int activity_main=0x7f030019;
         public static final int activity_sign_up=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
+        public static final int fragment_appointments=0x7f03001b;
+        public static final int fragment_booking=0x7f03001c;
+        public static final int fragment_pets=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
     }
     public static final class menu {
         public static final int login=0x7f0c0000;
@@ -1267,6 +1272,9 @@ containing a value of this type.
         public static final int action_logout=0x7f0a0012;
         public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
+        public static final int empty_appointment_label=0x7f0a0019;
+        public static final int empty_booking_label=0x7f0a0017;
+        public static final int empty_pets_label=0x7f0a0018;
         public static final int hello_world=0x7f0a000e;
         public static final int login_error_message=0x7f0a0015;
         public static final int login_error_title=0x7f0a0016;
@@ -1274,6 +1282,9 @@ containing a value of this type.
         public static final int signup_error_title=0x7f0a0014;
         public static final int title_activity_login=0x7f0a0010;
         public static final int title_activity_sign_up=0x7f0a0011;
+        public static final int title_section1=0x7f0a001a;
+        public static final int title_section2=0x7f0a001b;
+        public static final int title_section3=0x7f0a001c;
     }
     public static final class style {
         /** 
