@@ -11,6 +11,10 @@
     <string name="signup_error_title">Oops!</string>
     <string name="login_error_message">Please make sure you enter a username, password!</string>
     <string name="login_error_title">Oops!</string>
-
-
+    <string name="empty_booking_label">Booking Page</string>
+    <string name="empty_pets_label">Add Pets to begin!</string>
+    <string name="empty_appointment_label">Add Appointment to begin!</string>
+    <string name="title_section1">Booking</string>
+	<string name="title_section2">Pets</string>
+	<string name="title_section3">Appointments</string>
 </resources>
