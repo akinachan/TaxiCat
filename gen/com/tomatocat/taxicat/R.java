@@ -1295,11 +1295,11 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050034;
         public static final int action_bar_title=0x7f050033;
         public static final int action_context_bar=0x7f05002e;
-        public static final int action_logout=0x7f050063;
+        public static final int action_logout=0x7f050064;
         public static final int action_menu_divider=0x7f050027;
         public static final int action_menu_presenter=0x7f050028;
         public static final int action_mode_close_button=0x7f050035;
-        public static final int action_settings=0x7f050062;
+        public static final int action_settings=0x7f050063;
         public static final int activity_chooser_view_content=0x7f050036;
         public static final int alignBounds=0x7f050002;
         public static final int alignMargins=0x7f050003;
@@ -1326,6 +1326,7 @@ containing a value of this type.
         public static final int fill=0x7f05000d;
         public static final int fill_horizontal=0x7f05000b;
         public static final int fill_vertical=0x7f050009;
+        public static final int gridView1=0x7f050062;
         public static final int home=0x7f050025;
         public static final int homeAsUp=0x7f050017;
         public static final int horizontal=0x7f050000;
