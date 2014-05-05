@@ -35,6 +35,10 @@
             android:label="@string/title_activity_sign_up"
             android:parentActivityName="com.tomatocat.taxicat.LoginActivity" >
         </activity>
+         <activity
+            android:name="com.tomatocat.taxicat.AddPet"
+            android:label="@string/title_activity_sign_up">
+        </activity>
     </application>
 
 </manifest>
