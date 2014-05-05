@@ -1,6 +1,5 @@
 package com.tomatocat.taxicat;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,18 +22,14 @@ public class AddPet extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_pets);
 
-		Intent intent = getIntent();
-
-		petName = (EditText) findViewById(R.id.inputPetName);
-		petType = (EditText) findViewById(R.id.inputPetType);
-		petColor = (EditText) findViewById(R.id.inputPetColor);
-		petAge = (EditText) findViewById(R.id.inputPetAge);
-		petGender = (EditText) findViewById(R.id.inputPetGender);
-		petAdd = (Button) findViewById(R.id.buttonAdd);
+		petName = (EditText) findViewById(R.id.txtPetName);
+		petType = (EditText) findViewById(R.id.txtPetType);
+		petColor = (EditText) findViewById(R.id.txtPetColor);
+		petAge = (EditText) findViewById(R.id.txtPetAge);
+		petGender = (EditText) findViewById(R.id.txtPetGender);
+		petAdd = (Button) findViewById(R.id.btnAddPet);
 
 		petAdd.setOnClickListener(new View.OnClickListener() {
-
-			@SuppressLint("NewApi")
 			@Override
 			public void onClick(View v) {
 				String name = petName.getText().toString();
@@ -57,10 +52,10 @@ public class AddPet extends Activity {
 				pet.put("Age", age);
 				pet.put("Gender", gender);
 				pet.saveInBackground();
-
-				Intent intent = new Intent(AddPet.this, PetsFragment.class);
+				Intent intent = new Intent(AddPet.this, MainActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+				intent.putExtra("navigate", 1);
 				startActivity(intent);
 
 			}

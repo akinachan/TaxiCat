@@ -1,14 +1,8 @@
 package com.tomatocat.taxicat;
 
-import com.parse.LogInCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseUser;
-
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.parse.ParseObject;
 
 public class BookingFragment extends Fragment {
 	protected EditText iSender;
@@ -27,28 +23,48 @@ public class BookingFragment extends Fragment {
 	protected EditText iContact;
 	protected Button iSubmit;
 	Context context;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_booking, container,
 				false);
-		context= rootView.getContext();
-		
-		iSender = (EditText) rootView.findViewById(R.id.inputSender);
-		iAnimal = (EditText) rootView.findViewById(R.id.inputAnimal);
-		iPhone = (EditText) rootView.findViewById(R.id.inputPhone);
-		iAddress = (EditText) rootView.findViewById(R.id.inputAddress);
-		iTime = (EditText) rootView.findViewById(R.id.inputTime);
-		iDestination = (EditText) rootView.findViewById(R.id.inputDestination);
-		iContact = (EditText) rootView.findViewById(R.id.inputContact);
-		iSubmit = (Button) rootView.findViewById(R.id.buttonSubmit);
+		context = rootView.getContext();
+
+		iSender = (EditText) rootView.findViewById(R.id.txtSenderName);
+		iAnimal = (EditText) rootView.findViewById(R.id.txtPetName);
+		iPhone = (EditText) rootView.findViewById(R.id.txtSenderPhone);
+		iAddress = (EditText) rootView.findViewById(R.id.txtPAddress);
+		iTime = (EditText) rootView.findViewById(R.id.txtPTime);
+		iDestination = (EditText) rootView.findViewById(R.id.txtDAddress);
+		iContact = (EditText) rootView.findViewById(R.id.txtContactPhone);
+		iSubmit = (Button) rootView.findViewById(R.id.btnBook);
 
 		iSubmit.setOnClickListener(new View.OnClickListener() {
 
-		
 			@Override
 			public void onClick(View v) {
+				bookingTaxi();
+				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+				builder.setTitle("Success!")
+						.setMessage("Taxi book, please wait for the confirmation.")
+						.setCancelable(false)
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,
+											int id) {
+										// do things
+									}
+								});
+				AlertDialog alert = builder.create();
+				alert.show();
+
+				clearInput();
+
+			}
+
+			private void bookingTaxi() {
 				String sender = iSender.getText().toString();
 				String animal = iAnimal.getText().toString();
 				String phone = iPhone.getText().toString();
@@ -64,10 +80,8 @@ public class BookingFragment extends Fragment {
 				time = time.trim();
 				destination = destination.trim();
 				contact = contact.trim();
-				
-				
 
-				ParseObject book = new ParseObject("booking");
+				ParseObject book = new ParseObject("Booking");
 				book.put("Sender", sender);
 				book.put("Animal", animal);
 				book.put("Phone", phone);
@@ -76,12 +90,20 @@ public class BookingFragment extends Fragment {
 				book.put("Destination", destination);
 				book.put("Contact", contact);
 				book.saveInBackground();
-
-				
-			}		
+			}
 
 		});
-		
+
 		return rootView;
+	}
+
+	public void clearInput() {
+		iSender.setText("");
+		iAnimal.setText("");
+		iPhone.setText("");
+		iAddress.setText("");
+		iTime.setText("");
+		iContact.setText("");
+		iDestination.setText("");
 	}
 }

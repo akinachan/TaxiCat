@@ -1,85 +1,79 @@
 package com.tomatocat.taxicat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
-import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import java.util.List;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 
-import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TabHost;
-
 public class AppointmentFragment extends Fragment {
+	protected final static String TAG = AppointmentFragment.class
+			.getSimpleName();
 	Context context;
+	ListView mListAppointment;
+	ProgressBar mProgressBar;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_appointments, container,
-				false);
+		View rootView = inflater.inflate(R.layout.fragment_appointments,
+				container, false);
+		context = rootView.getContext();
+		mListAppointment = (ListView) rootView.findViewById(R.id.app_list);
+		mProgressBar = (ProgressBar) rootView
+				.findViewById(R.id.appointment_progressbar);
 
-		 final ListView lView = (ListView) rootView.findViewById(R.id.listView1);
-		 
-		// Defined Array values to show in ListView
-	        String[] values = new String[] {"YMOB", "Tomato","Cat", "D", "E", "F", "G", "H", "I", 
-	        		"J", "K", "L", "M", "N", "O", "P", "YMOB", "Tomato","Cat", "D", "E", "F"};
-
-	        /* Define a new Adapter
-	         * First parameter - Context
-	         * Second parameter - Layout for the row
-	         * Third parameter - ID of the TextView to which the data is written
-	         * Forth - the Array of data
-	         */ 
-
-	        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, android.R.id.text1, values);
-	      
-	        // Assign adapter to ListView
-	        lView.setAdapter(adapter); 
-		    /*ParseQuery<ParseObject> query = ParseQuery.getQuery("booking");
-		    query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-		      public void done(ParseObject book, ParseException e) {
-		        if (e == null) {
-		        	String timePickup = book.getString("Time")
-		        	
-		        } else {
-		        }
-		      }
-		    });*/
-		    
-		    /*listView= (ListView) findViewById(R.id.listViewAppointment);
-		    String[] values = new String[] { "Ubuntu", "Android", "iPhone",
-		        "Windows", "Ubuntu", "Android", "iPhone", "Windows" };
-		    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-		        android.R.layout.activity_list_item, values);
-			listView.setAdapter(adapter); */
-		    
-		    /*ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Booking");
-		    query.findInBackground(new FindCallback<ParseObject>() {
-		    public void done(List<ParseObject> ParseObject, ParseException e) {
-		        if (e == null) {
-		            
-		        } else {
-		            
-		        }
-		    }
-		});
-		*/
-		 
+		new AppointmentAsyncTask().execute();
+		
+	
 		return rootView;
+	}
+
+	public class AppointmentAsyncTask extends
+			AsyncTask<Object, Void, List<ParseObject>> {
+
+		@Override
+		protected List<ParseObject> doInBackground(Object... params) {
+			mProgressBar.setVisibility(View.VISIBLE);
+			List<ParseObject> appointments = new ArrayList<ParseObject>();
+			ParseQuery<ParseObject> query = ParseQuery.getQuery("Booking");
+
+			try {
+				appointments = query.find();
+
+			} catch (ParseException e) {
+				Log.e(TAG, "Caught Exception : " + e.getMessage(), e);
+
+			}
+			return appointments;
+		}
+
+		@Override
+		protected void onPostExecute(List<ParseObject> appointments) {
+			mProgressBar.setVisibility(View.INVISIBLE);
+			ArrayList<String> arrayAppointments = new ArrayList<String>();
+			for (int i = 0; i < appointments.size(); i++) {
+				arrayAppointments.add(appointments.get(i).getString("Sender"));
+			}
+
+			ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,
+					android.R.layout.simple_list_item_1, android.R.id.text1,
+					arrayAppointments);
+			mListAppointment.setAdapter(adapter);
+		}
 	}
 }
