@@ -9,22 +9,156 @@
     tools:context="com.tomatocat.taxicat.MainActivity$PlaceholderFragment" >
 
     <TextView
-        android:id="@+id/section_label"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-    </ListView>
+        android:layout_alignParentTop="true"
+        android:text="Booking"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/inputSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="sender name"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/inputAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/inputSender"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/inputPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/inputAnimal"
+        android:ems="10"
+        android:hint="phone number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/inputAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/inputPhone"
+        android:ems="10"
+        android:hint="address" />
 
     <TextView
-        android:id="@android:id/empty"
-        android:layout_width="match_parent"
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/empty_booking_label" />
+        android:layout_alignBaseline="@+id/inputAnimal"
+        android:layout_alignBottom="@+id/inputAnimal"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="Animal" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputPhone"
+        android:layout_alignBottom="@+id/inputPhone"
+        android:layout_alignLeft="@+id/textView3"
+        android:text="Phone" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputAddress"
+        android:layout_alignBottom="@+id/inputAddress"
+        android:layout_alignLeft="@+id/textView4"
+        android:text="Pick-up address" />
+
+    <EditText
+        android:id="@+id/inputTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/inputAddress"
+        android:ems="10"
+        android:hint="dd/mm/yyyy" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputSender"
+        android:layout_alignBottom="@+id/inputSender"
+        android:layout_alignParentLeft="true"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputTime"
+        android:layout_alignBottom="@+id/inputTime"
+        android:layout_alignParentLeft="true"
+        android:text="Pick-up time" />
+
+    <EditText
+        android:id="@+id/inputDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/inputTime"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="address" />
+
+    <EditText
+        android:id="@+id/inputContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/inputDestination"
+        android:ems="10"
+        android:hint="phone number"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputDestination"
+        android:layout_alignBottom="@+id/inputDestination"
+        android:layout_alignParentLeft="true"
+        android:text="Destination" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputContact"
+        android:layout_alignBottom="@+id/inputContact"
+        android:layout_alignParentLeft="true"
+        android:text="Contact" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="21dp"
+        android:text="Submit" />
 
 </RelativeLayout>
